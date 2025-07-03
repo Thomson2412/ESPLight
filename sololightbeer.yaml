@@ -25,4 +25,38 @@ wifi:
     password: "nTig01EaXGdZ"
 
 captive_portal:
+
+light:
+  - platform: rgb
+    name: "RGB Light"
+    id: rgb_light
+    red: red_output
+    green: green_output
+    blue: blue_output
+    default_transition_length: 1s
+    effects:
+      - random:
+      - strobe:
+      - flicker:
+
+output:
+  - platform: esp8266_pwm
+    pin: D1
+    frequency: 1000 Hz
+    id: red_output
+    inverted: true
+    max_power: 0.5
     
+  - platform: esp8266_pwm
+    pin: D2
+    frequency: 1000 Hz
+    id: green_output
+    inverted: true
+    max_power: 0.5
+    
+  - platform: esp8266_pwm
+    pin: D5
+    frequency: 1000 Hz
+    id: blue_output
+    inverted: true
+    max_power: 0.5
